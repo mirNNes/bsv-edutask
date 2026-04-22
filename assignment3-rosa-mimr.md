@@ -77,7 +77,7 @@ We implemented a pytest fixture that connects to a separate test collection call
 
 The integration tests were implemented in:
 
-`backend/test/integration/test_dao_create.py`
+`https://github.com/mirNNes/bsv-edutask/blob/master/backend/test/integration/test_dao_create.py`
 
 ---
 
