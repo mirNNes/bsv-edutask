@@ -86,11 +86,53 @@ The integration tests were implemented in:
 We ran the integration tests with pytest. The console output looked like this:
 
 ```text
+(.venv) MacBook-Air-som-tillhor-Robin:backend robin$ python3 -m pytest -q test/integration/test_dao_create.py
 ...F                                                                                                                     [100%]
+=========================================================== FAILURES ===========================================================
+_________________________________________ test_create_user_fails_for_duplicated_email __________________________________________
+
+dao = <src.util.dao.DAO object at 0x1100c5880>
+
+    @pytest.mark.integration
+    def test_create_user_fails_for_duplicated_email(dao):
+        first_user = {
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "email": "jane.doe@example.com",
+        }
+        second_user = {
+            "firstName": "Janet",
+            "lastName": "Doe",
+            "email": "jane.doe@example.com",
+        }
+
+        dao.create(first_user)
+
+>       with pytest.raises(pymongo.errors.WriteError):
+E       Failed: DID NOT RAISE <class 'pymongo.errors.WriteError'>
+
+test/integration/test_dao_create.py:86: Failed
+---------------------------------------------------- Captured stdout setup -----------------------------------------------------
+Connecting to collection user_test on MongoDB at url mongodb://localhost:27017
+======================================================== tests coverage ========================================================
+_______________________________________ coverage: platform darwin, python 3.12.5-final-0 _______________________________________
+
+Name                                Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------
+src/controllers/__init__.py             0      0   100%
+src/controllers/controller.py          31     31     0%   1-103
+src/controllers/taskcontroller.py      68     68     0%   1-139
+src/controllers/todocontroller.py      21     21     0%   1-40
+src/controllers/usercontroller.py      24     24     0%   1-46
+src/util/dao.py                        67     34    49%   79-83, 101-118, 134-141, 156-162, 170-173
+src/util/validators.py                  7      0   100%
+-----------------------------------------------------------------
+TOTAL                                 218    178    18%
+=================================================== short test summary info ====================================================
 FAILED test/integration/test_dao_create.py::test_create_user_fails_for_duplicated_email - Failed: DID NOT RAISE <class 'pymongo.errors.WriteError'>
 1 failed, 3 passed in 1.18s
 ```
 
-Brief evaluation:
+Thoughts:
 
 The test execution shows that three integration tests passed. This means that `DAO.create()` works as expected for valid input, missing required data, and wrong data types. One test failed: creating two users with the same email did not raise a write error. This indicates that duplicate emails are currently not rejected by the system, even though the validator suggests that this should happen.
