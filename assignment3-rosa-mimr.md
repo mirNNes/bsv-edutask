@@ -135,4 +135,8 @@ FAILED test/integration/test_dao_create.py::test_create_user_fails_for_duplicate
 
 Thoughts:
 
-The test execution shows that three integration tests passed. This means that `DAO.create()` works as expected for valid input, missing required data, and wrong data types. One test failed: creating two users with the same email did not raise a write error. This indicates that duplicate emails are currently not rejected by the system, even though the validator suggests that this should happen.
+The test execution shows that three integration tests passed. This means that `DAO.create()` works as expected for valid input, missing required data, and wrong data types.
+
+One test failed, the one about creating two users with the same email did not raise a write error. This fails because duplicate emails are allowed by the system. This does not match the DAO documentation, where values marked with `uniqueItems` should be unique. The user validator marks `email` with `uniqueItems: true`.
+
+This shows that the current implementation does not actually make unique email addresses needed when creating users. So, the failed test indicates that the system behavior does not match expected behavior.
