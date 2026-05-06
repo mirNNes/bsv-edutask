@@ -78,10 +78,12 @@ The system defines:
 
 We can divide the input into the following partitions:
 
-1. age < 0 → impossible
-2. 0 ≤ age < 18 → underage
-3. 18 ≤ age ≤ 120 → valid
-4. age > 120 → impossible
+| Partition      | Expected result | Example value |
+| -------------- | --------------- | ------------- |
+| age < 0        | impossible      | -1            |
+| 0 ≤ age < 18   | underage        | 10            |
+| 18 ≤ age ≤ 120 | valid           | 50            |
+| age > 120      | impossible      | 121           |
 
 #### Boundary values
 
@@ -101,39 +103,70 @@ Using BVA, we test values around these, so it could be:
 
 ## 3. Designing Test Cases
 
-### Actions
+### Step 1: Identify action and expected outcomes
 
-- Hold company card to sensor
-- Porter unlocks door
-- Open door from inside
+The action and outcomes of this scenario is:
 
-### Conditions
+| Action           | Possible outcomes         |
+| ---------------- | ------------------------- |
+| Opening the door | successful / unsuccessful |
 
-- Card validity: valid / invalid
-- Time at sensor: < 2 seconds / ≥ 2 seconds
-- Porter unlock: yes / no
-- Location: outside / inside
+### Step 2: Identify conditions
+
+The conditions are the factors that decide if opening the door should be successful or unsuccessful.
+
+| Condition      | Possible values                          |
+| -------------- | ---------------------------------------- |
+| Location       | outside / inside                         |
+| Card validity  | valid / invalid                          |
+| Time at sensor | at least 2 seconds / less than 2 seconds |
+| Porter unlock  | yes / no                                 |
 
 ---
 
-### Combinations and expected outcomes
+### Step 3 and 4: Determine all combinations and expected outcomes
 
-| Card Valid | Time ≥ 2s | Porter Unlock | Location | Expected Outcome  |
-| ---------- | --------- | ------------- | -------- | ----------------- |
-| valid      | yes       | no            | outside  | door opens        |
-| valid      | no        | no            | outside  | door stays closed |
-| invalid    | yes       | no            | outside  | door stays closed |
-| invalid    | no        | no            | outside  | door stays closed |
-| any        | any       | yes           | outside  | door opens        |
-| any        | any       | no            | inside   | door opens        |
+First, we list all possible combinations of the conditions. There are 2 values for each of the 4 conditions, which gives 16 combinations.
+
+| #   | Location | Card validity | Time at sensor      | Porter unlock | Opening the door |
+| --- | -------- | ------------- | ------------------- | ------------- | ---------------- |
+| 1   | outside  | valid         | at least 2 seconds  | yes           | successful       |
+| 2   | outside  | valid         | at least 2 seconds  | no            | successful       |
+| 3   | outside  | valid         | less than 2 seconds | yes           | successful       |
+| 4   | outside  | valid         | less than 2 seconds | no            | unsuccessful     |
+| 5   | outside  | invalid       | at least 2 seconds  | yes           | successful       |
+| 6   | outside  | invalid       | at least 2 seconds  | no            | unsuccessful     |
+| 7   | outside  | invalid       | less than 2 seconds | yes           | successful       |
+| 8   | outside  | invalid       | less than 2 seconds | no            | unsuccessful     |
+| 9   | inside   | valid         | at least 2 seconds  | yes           | successful       |
+| 10  | inside   | valid         | at least 2 seconds  | no            | successful       |
+| 11  | inside   | valid         | less than 2 seconds | yes           | successful       |
+| 12  | inside   | valid         | less than 2 seconds | no            | successful       |
+| 13  | inside   | invalid       | at least 2 seconds  | yes           | successful       |
+| 14  | inside   | invalid       | at least 2 seconds  | no            | successful       |
+| 15  | inside   | invalid       | less than 2 seconds | yes           | successful       |
+| 16  | inside   | invalid       | less than 2 seconds | no            | successful       |
+
+---
+
+### Final test table summary
+
+| #   | Location | Card validity | Time at sensor      | Porter unlock | Opening the door |
+| --- | -------- | ------------- | ------------------- | ------------- | ---------------- |
+| 1   | inside   | any           | any                 | any           | successful       |
+| 2   | outside  | any           | any                 | yes           | successful       |
+| 3   | outside  | valid         | at least 2 seconds  | no            | successful       |
+| 4   | outside  | valid         | less than 2 seconds | no            | unsuccessful     |
+| 5   | outside  | invalid       | any                 | no            | unsuccessful     |
 
 ---
 
 ### Explanation
 
-- A valid card must be held for at least 2 seconds to open the door from outside
-- The porter can unlock the door regardless of other conditions
-- From inside, the door can always be opened
+- From inside, opening the door is always successful.
+- From outside, opening the door is successful if the porter unlocks the door.
+- From outside, opening the door is also successful if a valid card is held to the sensor for at least 2 seconds.
+- From outside, opening the door is unsuccessful if the porter does not unlock the door and the card condition is not fulfilled.
 
 ---
 
