@@ -1,0 +1,189 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 4153 >>
+stream
+BT /F1 18.00 Tf 1 0 0 1 42.00 795.89 Tm (Assignment 1 - The Test Design Technique) Tj ET
+BT /F1 14.50 Tf 1 0 0 1 42.00 762.89 Tm (Work distribution) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 739.39 Tm (The work was divided between us both. Robin prepared the initial drafts for parts of the) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 724.89 Tm (assignment, and Mirnes reviewed and improved different parts. All parts were discussed and) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 710.39 Tm (checked by us both.) Tj ET
+BT /F1 14.50 Tf 1 0 0 1 42.00 673.89 Tm (1. Test Design Technique) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 650.39 Tm (The test design technique is a structured way of creating test cases. It helps to) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 635.89 Tm (systematically go from a scenario to a complete set of test cases.) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 616.39 Tm (The technique consists of these four steps:) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 594.89 Tm (Step 1: Identify actions and expected outcomes) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 573.89 Tm (First, we identify what actions are performed in the scenario and what possible outcomes) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 559.39 Tm (exist. This step focuses on understanding what the system does and what results we expect.) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 537.89 Tm (Step 2: Identify conditions) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 516.89 Tm (Next, we identify the conditions that influence the outcome. Conditions are variables or) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 502.39 Tm (factors that affect the system behavior, such as input values or states.) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 480.89 Tm (Step 3: Determine combinations) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 459.89 Tm (Then, we combine the different conditions to create relevant test cases. In simple cases, all) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 445.39 Tm (combinations can be tested. In more complex cases, we may filter combinations using domain) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 430.89 Tm (knowledge, which means understanding how the system is expected to work in practice.) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 409.39 Tm (Step 4: Define expected outcomes) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 388.39 Tm (Finally, for each combination, we define the expected outcome. This is based on the) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 373.89 Tm (specification or understanding of how the system should behave.) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 352.39 Tm (How the technique helps) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 331.39 Tm (The test design technique helps to create test cases in a structured way by:) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 311.89 Tm (-  breaking down the problem into clear steps) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 297.39 Tm (-  ensuring that important conditions are not missed) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 282.89 Tm (-  making test cases systematic instaed of random) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 268.39 Tm (-  making it easier to understand and review the tests) Tj ET
+BT /F1 14.50 Tf 1 0 0 1 42.00 231.89 Tm (2. Boundary Value Analysis and Equivalence Partitioning) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 206.39 Tm (Boundary Value Analysis \(BVA\)) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 185.39 Tm (Boundary value analysis focuses on testing values around boundaries where the system behavior) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 170.89 Tm (changes.) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 151.39 Tm (The idea is that errors often occur at the edges of input ranges. So typical test values are) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 136.89 Tm (therefore just below or above the boundary.) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 115.39 Tm (Equivalence Partitioning \(EP\)) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 94.39 Tm (Equivalence partitioning divides input values into groups \(partitions\) where all values are) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 79.89 Tm (expected to behave the same. Instead of testing all values, we select one representative) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 65.39 Tm (value from each partition, which makes testing more effective.) Tj ET
+BT /F1 8 Tf 1 0 0 1 297.64 24.00 Tm (1) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Length 3179 >>
+stream
+BT /F1 12.00 Tf 1 0 0 1 42.00 784.89 Tm (Comparison of BVA and EP) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 763.89 Tm (-  BVA focuses on edge cases \(boundaries\)) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 749.39 Tm (-  EP focuses on groups of values with similar behavior) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 729.89 Tm (They are often used together:) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 710.39 Tm (-  EP reduces the number of test cases) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 695.89 Tm (-  BVA ensures that critical edge cases are tested) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 661.39 Tm (Application to age validation) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 640.39 Tm (The system defines:) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 620.89 Tm (-  age < 0 -> impossible) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 606.39 Tm (-  age > 120 -> impossible) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 591.89 Tm (-  age < 18 -> underage) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 577.39 Tm (-  age >= 18 -> valid) Tj ET
+BT /F1 11.00 Tf 1 0 0 1 42.00 555.89 Tm (Equivalence partitions) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 535.89 Tm (We can divide the input into the following partitions:) Tj ET
+BT /F4 8.40 Tf 1 0 0 1 42.00 514.39 Tm (Partition        | Expected result | Example value) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 502.99 Tm (-----------------+-----------------+--------------) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 491.59 Tm (age < 0          | impossible      | -1           ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 480.19 Tm (0 <= age < 18    | underage        | 10           ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 468.79 Tm (18 <= age <= 120 | valid           | 50           ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 457.39 Tm (age > 120        | impossible      | 121          ) Tj ET
+BT /F1 11.00 Tf 1 0 0 1 42.00 434.99 Tm (Boundary values) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 414.99 Tm (The important boundaries are:) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 395.49 Tm (-  0) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 380.99 Tm (-  18) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 366.49 Tm (-  120) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 346.99 Tm (Using BVA, we test values around these, so it could be:) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 327.49 Tm (-  -1, 0, 1) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 312.99 Tm (-  17, 18, 19) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 298.49 Tm (-  119, 120, 121) Tj ET
+BT /F1 14.50 Tf 1 0 0 1 42.00 261.99 Tm (3. Designing Test Cases) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 236.49 Tm (Step 1: Identify action and expected outcomes) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 215.49 Tm (The action and outcomes of this scenario is:) Tj ET
+BT /F4 8.40 Tf 1 0 0 1 42.00 193.99 Tm (Action           | Possible outcomes        ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 182.59 Tm (-----------------+--------------------------) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 171.19 Tm (Opening the door | successful / unsuccessful) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 148.79 Tm (Step 2: Identify conditions) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 127.79 Tm (The conditions are the factors that decide if opening the door should be successful or) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 113.29 Tm (unsuccessful.) Tj ET
+BT /F1 8 Tf 1 0 0 1 297.64 24.00 Tm (2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Length 5580 >>
+stream
+BT /F4 8.40 Tf 1 0 0 1 42.00 797.89 Tm (Condition      | Possible values                         ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 786.49 Tm (---------------+-----------------------------------------) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 775.09 Tm (Location       | outside / inside                        ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 763.69 Tm (Card validity  | valid / invalid                         ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 752.29 Tm (Time at sensor | at least 2 seconds / less than 2 seconds) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 740.89 Tm (Porter unlock  | yes / no                                ) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 705.49 Tm (Step 3 and 4: Determine all combinations and expected outcomes) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 684.49 Tm (First, we list all possible combinations of the conditions. There are 2 values for each of) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 669.99 Tm (the 4 conditions, which gives 16 combinations.) Tj ET
+BT /F4 8.40 Tf 1 0 0 1 42.00 648.49 Tm (#  | Location | Card validity | Time at sensor      | Porter unlock | Opening the door) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 637.09 Tm (---+----------+---------------+---------------------+---------------+-----------------) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 625.69 Tm (1  | outside  | valid         | at least 2 seconds  | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 614.29 Tm (2  | outside  | valid         | at least 2 seconds  | no            | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 602.89 Tm (3  | outside  | valid         | less than 2 seconds | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 591.49 Tm (4  | outside  | valid         | less than 2 seconds | no            | unsuccessful    ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 580.09 Tm (5  | outside  | invalid       | at least 2 seconds  | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 568.69 Tm (6  | outside  | invalid       | at least 2 seconds  | no            | unsuccessful    ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 557.29 Tm (7  | outside  | invalid       | less than 2 seconds | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 545.89 Tm (8  | outside  | invalid       | less than 2 seconds | no            | unsuccessful    ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 534.49 Tm (9  | inside   | valid         | at least 2 seconds  | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 523.09 Tm (10 | inside   | valid         | at least 2 seconds  | no            | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 511.69 Tm (11 | inside   | valid         | less than 2 seconds | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 500.29 Tm (12 | inside   | valid         | less than 2 seconds | no            | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 488.89 Tm (13 | inside   | invalid       | at least 2 seconds  | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 477.49 Tm (14 | inside   | invalid       | at least 2 seconds  | no            | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 466.09 Tm (15 | inside   | invalid       | less than 2 seconds | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 454.69 Tm (16 | inside   | invalid       | less than 2 seconds | no            | successful      ) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 419.29 Tm (Final test table summary) Tj ET
+BT /F4 8.40 Tf 1 0 0 1 42.00 396.29 Tm (# | Location | Card validity | Time at sensor      | Porter unlock | Opening the door) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 384.89 Tm (--+----------+---------------+---------------------+---------------+-----------------) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 373.49 Tm (1 | inside   | any           | any                 | any           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 362.09 Tm (2 | outside  | any           | any                 | yes           | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 350.69 Tm (3 | outside  | valid         | at least 2 seconds  | no            | successful      ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 339.29 Tm (4 | outside  | valid         | less than 2 seconds | no            | unsuccessful    ) Tj ET
+BT /F3 8.40 Tf 1 0 0 1 42.00 327.89 Tm (5 | outside  | invalid       | any                 | no            | unsuccessful    ) Tj ET
+BT /F1 12.00 Tf 1 0 0 1 42.00 292.49 Tm (Explanation) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 271.49 Tm (-  From inside, opening the door is always successful.) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 256.99 Tm (-  From outside, opening the door is successful if the porter unlocks the door.) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 242.49 Tm (-  From outside, opening the door is also successful if a valid card is held to the sensor) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 227.99 Tm (   for at least 2 seconds.) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 213.49 Tm (-  From outside, opening the door is unsuccessful if the porter does not unlock the door and) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 58.00 198.99 Tm (   the card condition is not fulfilled.) Tj ET
+BT /F1 14.50 Tf 1 0 0 1 42.00 162.49 Tm (Final comment) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 138.99 Tm (The test design technique helps ensure that all relevant cases are covered in a structured) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 124.49 Tm (way. By combining conditions and defining expected outcomes, we can systematically design) Tj ET
+BT /F1 10.50 Tf 1 0 0 1 42.00 109.99 Tm (meaningful test cases.) Tj ET
+BT /F1 8 Tf 1 0 0 1 297.64 24.00 Tm (3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 5 0 R >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 6 0 R >>
+endobj
+10 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R /F4 4 0 R >> >> /Contents 7 0 R >>
+endobj
+11 0 obj
+<< /Type /Pages /Kids [ 8 0 R 9 0 R 10 0 R ] /Count 3 >>
+endobj
+12 0 obj
+<< /Type /Catalog /Pages 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000015 00000 n 
+0000000112 00000 n 
+0000000214 00000 n 
+0000000309 00000 n 
+0000000409 00000 n 
+0000004614 00000 n 
+0000007845 00000 n 
+0000013477 00000 n 
+0000013640 00000 n 
+0000013803 00000 n 
+0000013967 00000 n 
+0000014040 00000 n 
+trailer
+<< /Size 13 /Root 12 0 R >>
+startxref
+14091
+%%EOF

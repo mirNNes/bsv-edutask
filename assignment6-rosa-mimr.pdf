@@ -1,0 +1,69 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+4 0 obj
+<< /Type /Pages /Kids [ 6 0 R ] /Count 1 >>
+endobj
+5 0 obj
+<< /Length 2275 >>
+stream
+BT /F2 22 Tf 54.00 788.00 Td (Assignment 6) Tj ET
+BT /F1 11 Tf 54.00 745.00 Td (Team Members: Robin Sanssi \(rosa24\) Mirnes Mrso \(mimr24\)) Tj ET
+BT /F1 11 Tf 54.00 722.00 Td (Group Number: 35) Tj ET
+BT /F1 11 Tf 54.00 699.00 Td (Repository Link: https://github.com/mirNNes/bsv-edutask) Tj ET
+BT /F2 16 Tf 54.00 660.00 Td (Work distribution) Tj ET
+BT /F1 11 Tf 54.00 629.00 Td (The work was divided between us both. Robin prepared the initial draft for the workflow and code) Tj ET
+BT /F1 11 Tf 54.00 614.00 Td (fix, and Mirnes reviewed and checked the result. All parts were discussed and checked by us both.) Tj ET
+BT /F2 16 Tf 54.00 575.00 Td (1. Continuous Integration of Backend Unit Tests) Tj ET
+BT /F1 11 Tf 54.00 544.00 Td (For this assignment, we created a GitHub Actions workflow that automatically runs the backend) Tj ET
+BT /F1 11 Tf 54.00 529.00 Td (unit tests.) Tj ET
+BT /F1 11 Tf 54.00 506.00 Td (The workflow installs the backend dependencies and executes the unit tests with Pytest:) Tj ET
+0.94 0.94 0.94 rg 50.00 465.00 495.00 26.00 re f 0 g
+BT /F3 9 Tf 54.00 470.00 Td (pytest -m unit) Tj ET
+BT /F1 11 Tf 54.00 452.00 Td (The workflow file is located at:) Tj ET
+BT /F1 11 Tf 54.00 429.00 Td (.github/workflows/backend-unit-tests.yml) Tj ET
+BT /F1 11 Tf 54.00 406.00 Td (The workflow executions can be found here:) Tj ET
+BT /F1 11 Tf 54.00 383.00 Td (https://github.com/mirNNes/bsv-edutask/actions) Tj ET
+BT /F1 11 Tf 54.00 360.00 Td (We also opened a pull request that fixes the get_user_by_email method in) Tj ET
+BT /F1 11 Tf 54.00 345.00 Td (backend/src/controllers/usercontroller.py.) Tj ET
+BT /F1 11 Tf 54.00 322.00 Td (The fix makes the method:) Tj ET
+BT /F1 11 Tf 54.00 299.00 Td (-) Tj ET
+BT /F1 11 Tf 72.00 299.00 Td (return None when no user is found) Tj ET
+BT /F1 11 Tf 54.00 279.00 Td (-) Tj ET
+BT /F1 11 Tf 72.00 279.00 Td (reject email addresses that do not follow the expected format) Tj ET
+BT /F1 11 Tf 54.00 259.00 Td (The pull request can be found here:) Tj ET
+BT /F1 11 Tf 54.00 236.00 Td (https://github.com/mirNNes/bsv-edutask/pull/1) Tj ET
+BT /F1 11 Tf 54.00 213.00 Td (The pull request shows that the backend unit tests pass successfully. The pull request has been) Tj ET
+BT /F1 11 Tf 54.00 198.00 Td (left open for grading.) Tj ET
+
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 4 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 4 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000000160 00000 n 
+0000000228 00000 n 
+0000000287 00000 n 
+0000002614 00000 n 
+0000002760 00000 n 
+trailer
+<< /Size 8 /Root 7 0 R >>
+startxref
+2809
+%%EOF

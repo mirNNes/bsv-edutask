@@ -48,9 +48,19 @@ def test_get_user_by_email_returns_none_when_no_match(controller, mocked_dao):
 
 
 @pytest.mark.unit
-def test_get_user_by_email_raises_value_error_for_invalid_email(controller):
+def test_get_user_by_email_raises_value_error_for_email_without_at(controller, mocked_dao):
     with pytest.raises(ValueError):
         controller.get_user_by_email('invalid-email')
+
+    mocked_dao.find.assert_not_called()
+
+
+@pytest.mark.unit
+def test_get_user_by_email_raises_value_error_for_email_without_domain_host(controller, mocked_dao):
+    with pytest.raises(ValueError):
+        controller.get_user_by_email('jane@doe')
+
+    mocked_dao.find.assert_not_called()
 
 
 @pytest.mark.unit
