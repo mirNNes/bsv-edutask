@@ -5,7 +5,7 @@ from src.util.dao import DAO
 from src.util.validators import getValidator, validators
 
 TEST_COLLECTION = "user_test"
-TEST_MONGO_URL = "mongodb://localhost:27017"
+TEST_MONGO_URL = "mongodb://root:root@localhost:27017/?authSource=admin"
 
 
 @pytest.fixture

@@ -28,9 +28,9 @@ For example, in Assignment 2 the DAO was mocked when testing `get_user_by_email(
 
 But in integration testing, mocking has a different role.
 
-The main goal of an integration test is to verify that multiple components actually work well together. Because of that, the integration should usually not be mocked away. If the communication between two components is replaced by mocks, then the real integration is actually no longer being tested in reality.
+The main goal of an integration test is to verify that multiple components actually work well together. Because of that, the integration should usually not be mocked away. If the communication between two components is replaced by mocks, then the real integration is no longer being tested.
 
-Mocking can still be useful in integration tests, but only for parts that are outside the scope of the test or that would make the test unnecessarily difficult to control. But the key difference here is that the actual central interaction being tested must actually be real.
+Mocking can still be useful in integration tests, but only for parts that are outside the scope of the test or that would make the test difficult to control. The important part is that the main interaction must be real.
 
 ---
 
@@ -38,38 +38,81 @@ Mocking can still be useful in integration tests, but only for parts that are ou
 
 For this part, we focused on the communication between `DAO.create()` and MongoDB. The goal was to check that object creation works correctly together with the validator of the `user` collection.
 
+---
+
 ### Test design
 
-We took the test cases from the validator for `user` and from the expected behavior of `DAO.create()`.
+We used the 4-step test design technique to derive the integration test cases.
 
-To use the test design technique, we first identified the main conditions that affect the result. After that, we created test cases and wrote what we expected to happen in each case.
+#### Step 1: Identify action and expected outcomes
 
-The main conditions we used were these parts:
+The action tested is:
 
-- valid user data
-- missing required field
-- wrong data type
-- duplicate email
+**Create a user using `DAO.create(user)`**
 
-From these conditions, we defined the following test cases:
+The possible outcomes are:
 
-1. Create a user with valid data.
-   Expected outcome: the user should be created and returned with an `_id`.
+- the user is created successfully  
+- the creation fails with a database write error  
 
-2. Create a user with a missing required field.
-   Expected outcome: creation should fail with a database write error.
+---
 
-3. Create a user with a wrong field type.
-   Expected outcome: creation should fail with a database write error.
+#### Step 2: Identify conditions
 
-4. Create two users with the same email.
+The conditions that affect the result are:
+
+| Condition | Possible values |
+|---|---|
+| Required fields are present | yes / no |
+| Data types are correct | yes / no |
+| Email already exists | yes / no |
+
+---
+
+#### Step 3: Determine combinations
+
+| Test case | Required fields present | Data types correct | Email already exists | Expected result |
+|---|---|---|---|---|
+| 1 | yes | yes | no | user is created successfully |
+| 2 | no | yes | no | creation fails |
+| 3 | yes | no | no | creation fails |
+| 4 | yes | yes | yes | creation should fail |
+
+---
+
+#### Step 4: Define expected outcomes
+
+1. If all required fields are present, the data types are correct, and the email does not already exist, the user should be created and returned with an `_id`.
+
+2. If a required field is missing, MongoDB should reject the user data and a database write error should occur.
+
+3. If a field has the wrong data type, MongoDB should reject the user data and a database write error should occur.
+
+4. If the email already exists, the second user creation is expected to fail with a database write error.
+
+---
+
+### Final test cases
+
+Based on the combinations above, the following integration tests were created:
+
+1. Create a user with valid data.  
+   Expected outcome: the user is created and returned with an `_id`.
+
+2. Create a user with a missing required field.  
+   Expected outcome: creation fails with a database write error.
+
+3. Create a user with a wrong field type.  
+   Expected outcome: creation fails with a database write error.
+
+4. Create two users with the same email.  
    Expected outcome: the second creation should fail with a database write error.
 
 ---
 
 ### Pytest fixture
 
-We implemented a pytest fixture that connects to a separate test collection called `user_test` in MongoDB. The fixture uses `yield`, which means that it first sets up the test environment and then makes sure to clean it up after the test has finished.
+We implemented a pytest fixture that connects to a separate test collection called `user_test` in MongoDB. The fixture uses `yield`, which means that it first sets up the test environment and then cleans it up after the test has finished.
 
 ---
 
@@ -86,57 +129,6 @@ The integration tests were implemented in:
 We ran the integration tests with pytest. The console output looked like this:
 
 ```text
-(.venv) MacBook-Air-som-tillhor-Robin:backend robin$ python3 -m pytest -q test/integration/test_dao_create.py
-...F                                                                                                                     [100%]
-=========================================================== FAILURES ===========================================================
-_________________________________________ test_create_user_fails_for_duplicated_email __________________________________________
-
-dao = <src.util.dao.DAO object at 0x1100c5880>
-
-    @pytest.mark.integration
-    def test_create_user_fails_for_duplicated_email(dao):
-        first_user = {
-            "firstName": "Jane",
-            "lastName": "Doe",
-            "email": "jane.doe@example.com",
-        }
-        second_user = {
-            "firstName": "Janet",
-            "lastName": "Doe",
-            "email": "jane.doe@example.com",
-        }
-
-        dao.create(first_user)
-
->       with pytest.raises(pymongo.errors.WriteError):
-E       Failed: DID NOT RAISE <class 'pymongo.errors.WriteError'>
-
-test/integration/test_dao_create.py:86: Failed
----------------------------------------------------- Captured stdout setup -----------------------------------------------------
-Connecting to collection user_test on MongoDB at url mongodb://localhost:27017
-======================================================== tests coverage ========================================================
-_______________________________________ coverage: platform darwin, python 3.12.5-final-0 _______________________________________
-
-Name                                Stmts   Miss  Cover   Missing
------------------------------------------------------------------
-src/controllers/__init__.py             0      0   100%
-src/controllers/controller.py          31     31     0%   1-103
-src/controllers/taskcontroller.py      68     68     0%   1-139
-src/controllers/todocontroller.py      21     21     0%   1-40
-src/controllers/usercontroller.py      24     24     0%   1-46
-src/util/dao.py                        67     34    49%   79-83, 101-118, 134-141, 156-162, 170-173
-src/util/validators.py                  7      0   100%
------------------------------------------------------------------
-TOTAL                                 218    178    18%
-=================================================== short test summary info ====================================================
-FAILED test/integration/test_dao_create.py::test_create_user_fails_for_duplicated_email - Failed: DID NOT RAISE <class 'pymongo.errors.WriteError'>
-1 failed, 3 passed in 1.18s
-```
-
-Thoughts:
-
-The test execution shows that three integration tests passed. This means that `DAO.create()` works as expected for valid input, missing required data, and wrong data types.
-
-One test failed, the one about creating two users with the same email did not raise a write error. This fails because duplicate emails are allowed by the system. This does not match the DAO documentation, where values marked with `uniqueItems` should be unique. The user validator marks `email` with `uniqueItems: true`.
-
-This shows that the current implementation does not actually make unique email addresses needed when creating users. So, the failed test indicates that the system behavior does not match expected behavior.
+...F [100%]
+FAILED test_create_user_fails_for_duplicated_email
+1 failed, 3 passed
