@@ -1,18 +1,32 @@
 describe('Simple Todo Tests (R8)', () => {
 
   let email
+  let userId
 
   before(function () {
     cy.fixture('user.json').then((user) => {
-      email = user.email
+      email = `mon.doe.${Date.now()}@gmail.com`
+      user.email = email
 
       cy.request({
         method: 'POST',
         url: 'http://localhost:5001/users/create',
         form: true,
         body: user
+      }).then((response) => {
+        userId = response.body._id.$oid
       })
     })
+  })
+
+  after(function () {
+    if (userId) {
+      cy.request({
+        method: 'DELETE',
+        url: `http://localhost:5001/users/${userId}`,
+        failOnStatusCode: false
+      })
+    }
   })
 
   beforeEach(function () {
@@ -48,7 +62,7 @@ describe('Simple Todo Tests (R8)', () => {
       .should('exist')
   })
 
-  it('Toggle todo', () => {
+  it('Toggle todo from active to done and back to active', () => {
     cy.get('input[placeholder="Add a new todo item"]')
       .type('Toggle todo', { force: true })
 
@@ -63,6 +77,16 @@ describe('Simple Todo Tests (R8)', () => {
       .parent()
       .find('.checker')
       .should('have.class', 'checked')
+
+    cy.contains('Toggle todo')
+      .parent()
+      .find('.checker')
+      .click({ force: true })
+
+    cy.contains('Toggle todo')
+      .parent()
+      .find('.checker')
+      .should('have.class', 'unchecked')
   })
 
   it('Delete todo', () => {
@@ -79,7 +103,7 @@ describe('Simple Todo Tests (R8)', () => {
     cy.wait(1000)
 
     cy.contains('Delete todo')
-    .should('not.exist')
+      .should('not.exist')
   })
 
 })
